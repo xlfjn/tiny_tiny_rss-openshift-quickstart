@@ -96,7 +96,7 @@
 
 	// *** PubSubHubbub settings ***
 
-	define('PUBSUBHUBBUB_HUB', 'http://pubsubhubbub.appspot.com/');
+	define('PUBSUBHUBBUB_HUB', 'https://pubsubhubbub.appspot.com/');
 	// URL to a PubSubHubbub-compatible hub server. If defined, "Published
 	// articles" generated feed would automatically become PUSH-enabled.
 
@@ -137,7 +137,7 @@
 	// *** Cookies and login sessions ***
 	// **********************************
 	
-	define('SESSION_COOKIE_LIFETIME', -1);
+	define('SESSION_COOKIE_LIFETIME', 86400);
 	// Default lifetime of a session (e.g. login) cookie. In seconds, 
 	// 0 means cookie will be deleted when browser closes.
 
@@ -177,9 +177,9 @@
 	// *** Other settings (less important) ***
 	// ***************************************
 
-	define('CHECK_FOR_NEW_VERSION', true);
-	// Check for new versions of tt-rss automatically.
-
+	define('CHECK_FOR_UPDATES', true);
+	// Check for updates automatically if running Git version
+ 
 	define('DETECT_ARTICLE_LANGUAGE', false);
 	// Detect article language when updating feeds, presently this is only
 	// used for hyphenation. This may increase amount of CPU time used by 
