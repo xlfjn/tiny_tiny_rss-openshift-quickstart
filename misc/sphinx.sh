@@ -10,13 +10,13 @@
 #
 #
 
-DAEMON=${OPENSHIFT_REPO_DIR}/sphinx/bin/searchd
+DAEMON=${OPENSHIFT_REPO_DIR}sphinx/bin/searchd
 NAME=searchd
 DESC=sphinxsearch
 
 test -x $DAEMON || exit 0
 
-PIDFILE=${OPENSHIFT_DATA_DIR}/run/sphinx-searchd.pid
+PIDFILE=${OPENSHIFT_DATA_DIR}run/sphinx-searchd.pid
 DODTIME=1                   # Time to wait for the server to die, in seconds
                             # If this value is set too low you might not
                             # let some servers to die gracefully and
@@ -75,7 +75,7 @@ case "$1" in
   start)
         echo -n "Starting $DESC: "
         if ! running ; then
-          ${OPENSHIFT_REPO_DIR}/sphinx/bin/searchd --config ${OPENSHIFT_DATA_DIR}/sphinx/etc/sphinx.conf
+          ${OPENSHIFT_REPO_DIR}sphinx/bin/searchd --config ${OPENSHIFT_DATA_DIR}sphinx/etc/sphinx.conf
           echo $NAME
         else
           echo "Already running"
@@ -83,17 +83,17 @@ case "$1" in
         ;;
   stop)
         echo -n "Stopping $DESC: "
-        ${OPENSHIFT_REPO_DIR}/sphinx/bin/searchd --config ${OPENSHIFT_DATA_DIR}/sphinx/etc/sphinx.conf --stop
+        ${OPENSHIFT_REPO_DIR}sphinx/bin/searchd --config ${OPENSHIFT_DATA_DIR}sphinx/etc/sphinx.conf --stop
         echo "$NAME."
         ;;
   restart|reload|force-reload)
         echo -n "Restarting $DESC: "
 
         if running ; then
-	  ${OPENSHIFT_REPO_DIR}/sphinx/bin/searchd --config ${OPENSHIFT_DATA_DIR}/sphinx/etc/sphinx.conf --stop
+	  ${OPENSHIFT_REPO_DIR}sphinx/bin/searchd --config ${OPENSHIFT_DATA_DIR}sphinx/etc/sphinx.conf --stop
         fi
         [ -n "$DODTIME" ] && sleep $DODTIME
-        ${OPENSHIFT_REPO_DIR}/sphinx/bin/searchd --config ${OPENSHIFT_DATA_DIR}/sphinx/etc/sphinx.conf
+        ${OPENSHIFT_REPO_DIR}sphinx/bin/searchd --config ${OPENSHIFT_DATA_DIR}sphinx/etc/sphinx.conf
         echo "$NAME."
         ;;
 
